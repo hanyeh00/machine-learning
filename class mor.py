@@ -1,13 +1,24 @@
-import copy
-class father:
-    a = {1:2, 2:9,3:80,4:50}
-    b=a
+import requests
+from bs4 import BeautifulSoup
 
-    print(b)
-class child(father):
-    c=copy.copy(father.a)
-a=father
-a[1]=40
-print(b)
-print(c)
-print(d)
+login_url = 'http://example.com/login'
+data = {
+    'username': 'f9130268245',
+    'password': '102030'
+}
+import requests
+
+# Start the session
+session = requests.Session()
+
+# Create the payload
+payload = {'username': 'f9130268245',
+    'password': '102030'
+         }
+
+# Post the payload to the site to log in
+s = session.post("https://www.mahka.ir", data=payload)
+
+# Navigate to the next page and scrape the data
+s = session.get('https://mahka.ir/cs/UserMgmt/19/ورود-به-سایت')
+print(s.text)
