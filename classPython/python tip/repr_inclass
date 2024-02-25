@@ -1,0 +1,30 @@
+#wrong code:
+class Car:
+  def __init__(self,name,model,year):
+    self.name=name
+    self.model=model
+    self.year=year
+  def __repr__(self):
+    return f"Car({self.name},{self.model},{self.year})"
+
+test=Car("benz",'550i','2003')
+print(test)
+output=Car('benz','550i,2003)
+{self__name__
+#right code:
+class Car:
+  def __init__(self,name,model,year):
+    self.name=name
+    self.model=model
+    self.year=year
+  def __repr__(self):
+    #return f"Car({self.name!r},{self.model!r},{self.year!r})"
+    return f"{type(self).__name__}({self.name},{self.model},{self.year})"
+
+#!r shows  type of parameters in output,in this example 2003 is string and it shows string
+#!r keep formats of parameter as they are
+
+test=Car('benz','550i','2003')
+print(test)
+#output=Car('benz','550i','2003')
+
